@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="login()">Login</button>
+        <button onclick="signup()">Signup</button>
 
+        <div id="loginForm" class="hidden" style="display: hidden;">
+            <h2>Login Form</h2>
+            <form action="login.html">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+
+        <div id="error" class="hidden">
+            <p style="color: black;">Login not allowed from your location.</p>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            let location = prompt("Please enter your location:");
+
+            if (location === "punjab" || 
+                location === "haryana" || 
+                location === "chandigarh") {
+                document.getElementById("loginForm").classList.remove("hidden");
+                document.getElementById("error").classList.add("hidden");
+                alert("LESSSS GOOO");
+            } else {
+                document.getElementById("loginForm").classList.add("hidden");
+                document.getElementById("error").classList.remove("hidden");
+                alert("SORRY! <br> Our services are not available in this area");
+            }
+        }
+
+        function signup() {
+            alert("Signup functionality is not implemented yet.");
+        }
+    </script>
+</body>
+</html>
